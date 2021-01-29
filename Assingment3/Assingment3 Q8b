@@ -1,0 +1,17 @@
+import java.util.concurrent.CopyOnWriteArrayList; 
+import java.util.Iterator; 
+  
+class FailSafe { 
+    public static void main(String args[]) 
+    { 
+        CopyOnWriteArrayList<Integer> list 
+            = new CopyOnWriteArrayList<Integer>(new Integer[] { 2, 5, 3, 8}); 
+        Iterator itr = list.iterator(); 
+        while (itr.hasNext()) { 
+            Integer no = (Integer)itr.next(); 
+            System.out.println(no); 
+            if (no == 8) 
+            list.add(14); 
+        } 
+    } 
+} 
